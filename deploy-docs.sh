@@ -20,26 +20,26 @@ GH_REPO=test-travis-mkdocs
 REMOTE="https://${GH_TOKEN}@github.com/${GH_ORG}/${GH_REPO}"
 git remote set-url origin ${REMOTE}
 
-echo "Installing required Python packages..."
+echo "START installing required Python packages..."
 pip3 install mkdocs
 pip3 install pygments
 pip3 install pymdown-extensions
 pip3 install pyyaml
 pip3 install mkdocs-markdownextradata-plugin
-echo "Required Python packages installed."
+echo "DONE installing required Python packages."
 
-echo "Installing DANS mkdocs theme..."
+echo "START installing DANS mkdocs theme..."
 git clone https://github.com/Dans-labs/mkdocs-dans $HOME/mkdocs-dans
 pushd $HOME/mkdocs-dans || exit
+git pull
 python3 build.py pack
 popd || exit
-echo "DANS mkdocs theme installed."
+echo "DONE installing DANS mkdocs theme."
 
-echo "Building project site..."
+echo "START building project docs..."
 mkdocs build
-echo "Project site built."
+echo "DONE building project docs."
 
-echo "Deploying GitHub pages..."
+echo "START deploying docs to GitHub pages..."
 mkdocs gh-deploy --force
-mkdocs --version
-echo "GitHub pages deployed."
+echo "DONE deploying docs to GitHub pages."
