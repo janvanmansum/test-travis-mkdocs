@@ -5,7 +5,7 @@ cache:
     - "$HOME/.m2/repository"
 python: "3.7.1"
 after_success:
-  - apt-get install python3
+  - sudo apt-get install python3
   - pip3 install mkdocs
 env:
   global:
