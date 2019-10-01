@@ -1,26 +1,26 @@
 matrix:
   include:
-    - language: java
-      jdk: openjdk8
-      cache:
-        directories:
-          - "$HOME/.m2/repository"
-    - language: python
-      python: "3.7.1"
-      cache:
-        directories:
-          - "$HOME/.cache"
-          - "$HOME/virtualenv"
-      script:
-        - pip3 install mkdocs
-        - pip3 install pygments
-        - pip3 install pymdown-extensions
-        - pip3 install pyyaml
-        - pip3 install mkdocs-markdownextradata-plugin
-        - git clone https://github.com/Dans-labs/mkdocs-dans
-        - pushd mkdocs-dans; python3 build.py pack; popd
-        - mkdocs build
-        - ./deploy-docs.sh
-      env:
-        global:
-          secure: "ZzBogTXUBX6Fm8g6qnmm6AGEpSipBaZ7UcGf/3wIESkDQW70DE9KR6gL7cZSii9Ajk9ug1FjBGquk47LgJ7vGcmKDh8Eb2T3zo0zCmdeEZWIhtu/q1w+ZMbjorEb60IXpCh/dAjXeSLeKcXRmE6+1VZg6u+HYzLkvITelg1penr4PleJbhmhIE6KoVgeRZDMSMFUjHKWxQvzgkmZhYjyxLoaErjLgHONNX2f0K7iJ5uZVDpoWScBBh3arMNzU6niryq5HaURWKOPkZ9UPLRBYbJG5EbWijwnFipyfhW6PBPSfLR1JTOcUQWCPGB+BOU2dV9/Nr1ModFP/BC1YbBjxzDFf06G/2jkzM3h6zYoOMMJXqNAmdrvelYsd7QwVoYQCXvVBf0Tb2IhJ5k9wnp+CFmtLYyrk6KPxBtDCrYi9FBGHUwqJA20x85QeO44jsvFFswbNnCIYf+rYTGDBu6R3zHjU4qvhUa239TwLxNT8pyb3J2A9mZeLCpvFFVPGuNvcNF7fwdyAPwQ+iQszmy839ZRQuCwLjdL/1XnHzjWPv1MuphzAbdvJMUsW8CN+5/YvtkAHzyy6RFMgFN0pOQpDXOkDYu2oxKd3p5+RWJ9xuStV5rwAqLGIsnMqKcRtV5ChdZvKxR9d5HjATGcmgtjbgJqef9aUVuSqR7e1RCqgUk="
+  - language: java
+    jdk: openjdk8
+    cache:
+      directories:
+      - "$HOME/.m2/repository"
+  - language: python
+    python: 3.7.1
+    cache:
+      directories:
+      - "$HOME/.cache"
+      - "$HOME/virtualenv"
+    script:
+    - pip3 install mkdocs
+    - pip3 install pygments
+    - pip3 install pymdown-extensions
+    - pip3 install pyyaml
+    - pip3 install mkdocs-markdownextradata-plugin
+    - git clone https://github.com/Dans-labs/mkdocs-dans
+    - pushd mkdocs-dans; python3 build.py pack; popd
+    - mkdocs build
+    - "./deploy-docs.sh"
+env:
+  global:
+    secure: WyWVp6toX/3Bm3AC7UNqD7p4VMIUSwwMhFnUxNDcxoqofwqdd3l6mLuyOhEZJTuJ8Qqyp7zkjkft/lHm5d9QMHY0giiNtdbb6MUjkt717cuhaTdf+1ZL8kwZky7T4aktWgv3tqaxJq3eDRH0337tDiDCFn/CxDEBguicxjaoQFCurv4TABdUwb8aTnTRoE9odx46GAn4zvjailD6eus8iLXlW69bC+m93dXkyjPxlaEbuNVr9chB3v0iJl9Y41fseZTZJOpMNDABjqHM0QM1gGz4l2n7/j9Uooj6JROE6I2ib6sNOJoTZAYKq7tRT3bueiKmgISiqZeurXyB8MkNfUAb3kTu5RSMdlLFLvK3Jst3KtwtwhLaZu176mkvTKerZvzeBBvXuaqLQHmOk1V3f0DOCcTF5XTc/Uhg3mTL6T07nVDDaCdQXS8QaIf+ELGoyOdBfcNUyBy/UKGv5TPiSPtM33s7tFuHUMm/2Eub1bi7BYhvLq+g2hoLzYEZcXCoJLYgQDauOZ428qpsNtJGovsc5w4EfZB5Uw/5votq7Dtjp5orgZ5UQeYlv2HY0Z8jK+rDxcfe0DcZnce8jKB8nX6XdDO1Btl+6fLKM1SlLSM0l3ML4GwIS3owtXddVOTPmHIJnO1Gc3HwIC2RI/5PCLFL5dLpTGg6xiqyhiC6EHk=
