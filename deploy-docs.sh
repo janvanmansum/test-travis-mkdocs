@@ -40,6 +40,11 @@ echo "START building project docs..."
 mkdocs build
 echo "DONE building project docs."
 
-echo "START deploying docs to GitHub pages..."
-mkdocs gh-deploy --force
-echo "DONE deploying docs to GitHub pages."
+if [ "$TRAVIS_PULL_REQUEST" = "true" ]
+then
+  echo "NOT deploying pages of PULL REQUEST to GitHuB"
+else
+  echo "START deploying docs to GitHub pages..."
+  mkdocs gh-deploy --force
+  echo "DONE deploying docs to GitHub pages."
+fi
