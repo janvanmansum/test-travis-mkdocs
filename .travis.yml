@@ -13,15 +13,4 @@ matrix:
       - "$HOME/.cache"
       - "$HOME/virtualenv"
     script:
-    - pip3 install mkdocs
-    - pip3 install pygments
-    - pip3 install pymdown-extensions
-    - pip3 install pyyaml
-    - pip3 install mkdocs-markdownextradata-plugin
-    - git clone https://github.com/Dans-labs/mkdocs-dans
-    - pushd mkdocs-dans; python3 build.py pack; popd
-    - mkdocs build
-    - "./deploy-docs.sh"
-env:
-  global:
-    secure: WyWVp6toX/3Bm3AC7UNqD7p4VMIUSwwMhFnUxNDcxoqofwqdd3l6mLuyOhEZJTuJ8Qqyp7zkjkft/lHm5d9QMHY0giiNtdbb6MUjkt717cuhaTdf+1ZL8kwZky7T4aktWgv3tqaxJq3eDRH0337tDiDCFn/CxDEBguicxjaoQFCurv4TABdUwb8aTnTRoE9odx46GAn4zvjailD6eus8iLXlW69bC+m93dXkyjPxlaEbuNVr9chB3v0iJl9Y41fseZTZJOpMNDABjqHM0QM1gGz4l2n7/j9Uooj6JROE6I2ib6sNOJoTZAYKq7tRT3bueiKmgISiqZeurXyB8MkNfUAb3kTu5RSMdlLFLvK3Jst3KtwtwhLaZu176mkvTKerZvzeBBvXuaqLQHmOk1V3f0DOCcTF5XTc/Uhg3mTL6T07nVDDaCdQXS8QaIf+ELGoyOdBfcNUyBy/UKGv5TPiSPtM33s7tFuHUMm/2Eub1bi7BYhvLq+g2hoLzYEZcXCoJLYgQDauOZ428qpsNtJGovsc5w4EfZB5Uw/5votq7Dtjp5orgZ5UQeYlv2HY0Z8jK+rDxcfe0DcZnce8jKB8nX6XdDO1Btl+6fLKM1SlLSM0l3ML4GwIS3owtXddVOTPmHIJnO1Gc3HwIC2RI/5PCLFL5dLpTGg6xiqyhiC6EHk=
+      - "./deploy-docs.sh"

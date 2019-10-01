@@ -1,6 +1,45 @@
-REMOTE="https://${GH_TOKEN}@github.com/janvanmansum/test-travis-mkdocs"
+#
+# Copyright (C) 2019 DANS - Data Archiving and Networked Services (info@dans.knaw.nl)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
+GH_ORG=janvanmansum
+GH_REPO=test-travis-mkdocs
+
+REMOTE="https://${GH_TOKEN}@github.com/${GH_ORG}/${GH_REPO}"
 git remote set-url origin ${REMOTE}
 
+echo "Installing required Python packages..."
+pip3 install mkdocs
+pip3 install pygments
+pip3 install pymdown-extensions
+pip3 install pyyaml
+pip3 install mkdocs-markdownextradata-plugin
+echo "Required Python packages installed."
+
+echo "Installing DANS mkdocs theme..."
+git clone https://github.com/Dans-labs/mkdocs-dans $HOME/mkdocs-dans
+pushd $HOME/mkdocs-dans || exit
+python3 build.py pack
+popd || exit
+echo "DANS mkdocs theme installed."
+
+echo "Building project site..."
+mkdocs build
+echo "Project site built."
+
+echo "Deploying GitHub pages..."
 mkdocs gh-deploy --force
 mkdocs --version
+echo "GitHub pages deployed."
