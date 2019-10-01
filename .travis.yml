@@ -17,7 +17,7 @@ matrix:
         - pip3 install pymdown-extensions
         - pip3 install pyyaml
         - git clone https://github.com/Dans-labs/mkdocs-dans
-        - cd mkdocs-dans; python3 build.py pack
+        - pushd mkdocs-dans; python3 build.py pack; popd
         - mkdocs build
         - mkdocs gh-deploy
       env:
